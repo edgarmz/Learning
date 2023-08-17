@@ -1,0 +1,18 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="sintaxisAnalizer" class="com.edgmed.DIdemo.SintaxisChecker"/>
+    <bean id="codeEditor" class="com.edgmed.DIdemo.CodeEditor">
+        <!-- To inject denpendecies throught  xml -->
+        <!-- using tag property
+         the tag "name" is pointing the  attribute of the Bean class
+         not the name of the parameter in the setter method for setting the attribute.
+         ref is the id of the  bean who will be injected-->
+        <property name="sintaxisChecker" ref="sintaxisAnalizer"/>
+    </bean>
+
+</beans>
